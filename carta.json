@@ -226,11 +226,6 @@
       "precio_eur": 2.50
     },
     {
-      "nombre_es": "Gemini ha dicho",
-      "nombre_en": "Gemini has said",
-      "precio_eur": 2.90
-    },
-    {
       "nombre_es": "Tercio de cerveza",
       "nombre_en": "Bottled beer (330ml)",
       "precio_eur": 2.80
@@ -432,7 +427,7 @@
           "descripcion_es": "Lechuga, tomate, huevo, maíz y atún",
           "nombre_en": "Veggie-style",
           "descripcion_en": "Lettuce, tomato, egg, corn, and tuna",
-          "precio_eur": 7.50
+          "precio_eur": 8.00
         },
         {
           "nombre_es": "Jamón York",
@@ -470,12 +465,12 @@
     {
       "nombre_es": "Magra con tomate",
       "nombre_en": "Lean pork with tomato sauce",
-      "precio_eur": 6.00
+      "precio_eur": 6.50
     },
     {
       "nombre_es": "Albóndigas con tomate",
       "nombre_en": "Meatballs with tomato sauce",
-      "precio_eur": 6.00
+      "precio_eur": 6.50
     },
     {
       "nombre_es": "Ensaladilla rusa",
@@ -490,7 +485,7 @@
     {
       "nombre_es": "Boquerones en vinagre con patatas",
       "nombre_en": "Anchovies in vinegar with potato chips",
-      "precio_eur": 5.00
+      "precio_eur": 5.50
     },
     {
       "nombre_es": "Ensalada de bocas",
@@ -500,7 +495,7 @@
     {
       "nombre_es": "Tortitas de camarón",
       "nombre_en": "Shrimp pancakes",
-      "precio_eur": 6.00
+      "precio_eur": 7.00
     },
     {
       "nombre_es": "Surtido de croquetas",
