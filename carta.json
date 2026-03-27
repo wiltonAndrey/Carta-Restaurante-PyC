@@ -1,0 +1,618 @@
+[
+{
+  "categoria": "BOCADILLOS / BREADSTICKS",
+  "items": [
+    {
+      "nombre_es": "Pechuga Empanada",
+      "nombre_en": "Breaded chicken breast",
+      "precio_eur": 7.00
+    },
+    {
+      "nombre_es": "Calamares",
+      "nombre_en": "Squid rings",
+      "precio_eur": 7.00
+    },
+    {
+      "nombre_es": "Tortilla francesa",
+      "nombre_en": "Omelette",
+      "precio_eur": 7.00
+    },
+    {
+      "nombre_es": "Chorizo",
+      "nombre_en": "Sausage",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Pechuga Plancha",
+      "nombre_en": "Grilled chicken breast",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Lomo fresco",
+      "nombre_en": "Fresh pork loin",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Lomo adobado",
+      "nombre_en": "Pickled loin",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Longaniza blanca",
+      "nombre_en": "White sausage",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Salchicha roja",
+      "nombre_en": "Red sausage",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Beicon",
+      "nombre_en": "Bacon",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Jamón serrano",
+      "nombre_en": "Serrano ham",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Tortilla de patatas",
+      "nombre_en": "Spanish omelette with potatoes",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Chorizo a la plancha",
+      "nombre_en": "Grilled sausage",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Morcilla",
+      "nombre_en": "Black sausage",
+      "precio_eur": 6.00
+    }
+  ]
+},
+{
+  "categoria": "PLATOS COMBINADOS / COMBINED DISHES",
+  "items": [
+
+    {
+      "nombre_es": "Pechuga Empanada",
+      "nombre_en": "Breaded chicken breast",
+      "precio_eur": 14.00
+    },
+    {
+      "nombre_es": "Filete de merluza",
+      "nombre_en": "Hake fillet",
+      "precio_eur": 14.00
+    },
+    {
+      "nombre_es": "Pescado empanado",
+      "nombre_en": "Fish and chips",
+      "precio_eur": 14.00
+    },
+    {
+      "nombre_es": "Solomillo de cerdo con ajitos tiernos",
+      "nombre_en": "Pork tenderloin with tender garlic",
+      "precio_eur": 14.00
+    },
+    {
+      "nombre_es": "Atún a la plancha",
+      "nombre_en": "Grilled tuna",
+      "precio_eur": 14.00
+    },
+    {
+      "nombre_es": "Emperador",
+      "nombre_en": "Swordfish",
+      "precio_eur": 14.00
+    },
+    {
+      "nombre_es": "Filete de ternera",
+      "nombre_en": "Beef steak",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Chuleta de cerdo",
+      "nombre_en": "Pork chop",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Magra con tomate",
+      "nombre_en": "Lean pork with tomato sauce",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Pechuga Plancha",
+      "nombre_en": "Grilled chicken breast",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Lomo fresco",
+      "nombre_en": "Fresh pork loin",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Lomo adobado",
+      "nombre_en": "Pickled loin",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Tortilla francesa",
+      "nombre_en": "Omelette",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Albóndigas",
+      "nombre_en": "Meatballs",
+      "precio_eur": 12.00
+    }
+  ]
+},
+{
+  "categoria": "CAFÉS / COFFEE",
+  "items": [
+
+    {
+      "nombre_es": "Sólo",
+      "nombre_en": "Black coffee",
+      "precio_eur": 1.20
+    },
+    {
+      "nombre_es": "Cortado",
+      "nombre_en": "Coffee with a splash of milk",
+      "precio_eur": 1.40
+    },
+    {
+      "nombre_es": "Café con leche",
+      "nombre_en": "White coffee",
+      "precio_eur": 1.50
+    },
+    {
+      "nombre_es": "Bombón",
+      "nombre_en": "Coffee with condensed milk",
+      "precio_eur": 1.50
+    },
+    {
+      "nombre_es": "Carajillo",
+      "nombre_en": "Coffee with whiskey",
+      "precio_eur": 1.80
+    },
+    {
+      "nombre_es": "Belmonte",
+      "nombre_en": "Coffee with condensed milk and cognac",
+      "precio_eur": 2.00
+    },
+    {
+      "nombre_es": "Infusión",
+      "nombre_en": "Herbal infusion",
+      "precio_eur": 1.50
+    },
+    {
+      "nombre_es": "Café irlandés",
+      "nombre_en": "Irish coffee",
+      "precio_eur": 3.70
+    },
+    {
+      "nombre_es": "Lumumba",
+      "nombre_en": "Lumumba (chocolate milkshake with brandy)",
+      "precio_eur": 2.90
+    },
+    {
+      "nombre_es": "Café capuchino",
+      "nombre_en": "Cappuccino",
+      "precio_eur": 3.50
+    },
+    {
+      "nombre_es": "Café americano",
+      "nombre_en": "Americano coffee",
+      "precio_eur": 1.50
+    }
+  ]
+},
+{
+  "categoria": "BEBIDA / DRINKS",
+  "items": [
+
+    {
+      "nombre_es": "Caña",
+      "nombre_en": "Beer",
+      "precio_eur": 2.20
+    },
+    {
+      "nombre_es": "Bote",
+      "nombre_en": "Beer can",
+      "precio_eur": 2.50
+    },
+    {
+      "nombre_es": "Gemini ha dicho",
+      "nombre_en": "Gemini has said",
+      "precio_eur": 2.90
+    },
+    {
+      "nombre_es": "Tercio de cerveza",
+      "nombre_en": "Bottled beer (330ml)",
+      "precio_eur": 2.80
+    },
+    {
+      "nombre_es": "Copa de whiskey (Desde)",
+      "nombre_en": "Glass of whiskey (From)",
+      "precio_eur": 3.50
+    },
+    {
+      "nombre_es": "Copa de vino (Desde)",
+      "nombre_en": "Glass of wine (From)",
+      "precio_eur": 2.30
+    },
+    {
+      "nombre_es": "Vino verdejo",
+      "nombre_en": "Verdejo wine",
+      "precio_eur": 2.50
+    },
+    {
+      "nombre_es": "Vino Rioja",
+      "nombre_en": "Rioja wine",
+      "precio_eur": 2.50
+    },
+    {
+      "nombre_es": "Vino Ribera",
+      "nombre_en": "Ribera wine",
+      "precio_eur": 2.50
+    },
+    {
+      "nombre_es": "Zumos",
+      "nombre_en": "Juices",
+      "precio_eur": 2.50
+    },
+    {
+      "nombre_es": "Refrescos",
+      "nombre_en": "Soft drinks",
+      "precio_eur": 2.50
+    },
+    {
+      "nombre_es": "Tanque",
+      "nombre_en": "Jar of beer",
+      "precio_eur": 3.50
+    },
+    {
+      "nombre_es": "Tubo",
+      "nombre_en": "Tube glass of beer",
+      "precio_eur": 2.50
+    },
+    {
+      "nombre_es": "Chupitos de licor (Desde)",
+      "nombre_en": "Liquor shots (From)",
+      "precio_eur": 1.60
+    },
+    {
+      "nombre_es": "Chupitos de whiskey (Desde)",
+      "nombre_en": "Whiskey shots (From)",
+      "precio_eur": 1.80
+    },
+    {
+      "nombre_es": "Jarra de cerveza",
+      "nombre_en": "Beer pitcher",
+      "precio_eur": 9.00
+    },
+    {
+      "nombre_es": "Martini",
+      "nombre_en": "Martini",
+      "precio_eur": 3.80
+    },
+    {
+      "nombre_es": "Tinto de Verano",
+      "nombre_en": "Red wine with soda/lemonade",
+      "precio_eur": 3.50
+    },
+    {
+      "nombre_es": "Paloma",
+      "nombre_en": "Anise, water and ice",
+      "precio_eur": 3.50
+    },
+    {
+      "nombre_es": "Sol y sombra",
+      "nombre_en": "Ricard (Anise), brandy and ice",
+      "precio_eur": 3.50
+    },
+    {
+      "nombre_es": "Sangría",
+      "nombre_en": "Wine, chopped fruit, sweetener and liquor",
+      "precio_eur": 4.00
+    }
+  ]
+},
+{
+  "categoria": "ESPECIALIDADES DE LA CASA / HOUSE SPECIALITIES",
+  "items": [
+
+    {
+      "nombre_es": "BOCADILLO PUNTO Y COMA",
+      "descripcion_es": "Tomate, lechuga, mahonesa, lomo fresco, cebolla caramelizada y beicon",
+      "nombre_en": "PUNTO Y COMA BREADSTICK",
+      "descripcion_en": "Tomato, lettuce, mayonnaise, fresh loin, caramelized onion and bacon",
+      "precio_eur": 15.00
+    },
+    {
+      "nombre_es": "ESPECIAL DE LA CASA",
+      "descripcion_es": "Tomate, lechuga, mahonesa, pollo empanado y huevo",
+      "nombre_en": "HOUSE SPECIAL",
+      "descripcion_en": "Tomato, lettuce, mayonnaise, breaded chicken and egg",
+      "precio_eur": 15.00
+    },
+    {
+      "nombre_es": "TROPICAL PUNTO Y COMA",
+      "descripcion_es": "Lechuga, jamón york, queso y salsas de la casa",
+      "nombre_en": "TROPICAL PUNTO Y COMA",
+      "descripcion_en": "Lettuce, York ham, cheese and house sauces",
+      "precio_eur": 10.00
+    },
+    {
+      "nombre_es": "PATATAS PUNTO Y COMA",
+      "descripcion_es": "Salchichas y salsa de la casa",
+      "nombre_en": "PUNTO Y COMA CHIPS",
+      "descripcion_en": "Chips and sausages with special sauce",
+      "precio_eur": 10.00
+    }
+  ]
+},
+{
+  "categoria": "PERRITOS CALIENTES / HOT DOGS",
+  "items": [
+
+    {
+      "nombre_es": "Solo",
+      "nombre_en": "Classic Hot Dog",
+      "precio_eur": 4.00
+    },
+    {
+      "nombre_es": "Con queso",
+      "nombre_en": "Hot Dog with Cheese",
+      "precio_eur": 5.50
+    },
+    {
+      "nombre_es": "Beicon",
+      "nombre_en": "Hot Dog with Bacon",
+      "precio_eur": 5.50
+    },
+    {
+      "nombre_es": "Beicon y queso",
+      "nombre_en": "Bacon and Cheese Hot Dog",
+      "precio_eur": 6.00
+    }
+  ]
+},
+{
+  "categorias_adicionales": [
+
+    {
+      "categoria": "HAMBURGUESAS / BURGERS",
+      "items": [
+        {
+          "nombre_es": "Sola",
+          "descripcion_en": "Just meat and bun",
+          "precio_eur": 4.50
+        },
+        {
+          "nombre_es": "Con queso",
+          "nombre_en": "Cheeseburger",
+          "precio_eur": 5.50
+        },
+        {
+          "nombre_es": "Beicon",
+          "nombre_en": "Bacon Burger",
+          "precio_eur": 5.50
+        },
+        {
+          "nombre_es": "Beicon y queso",
+          "nombre_en": "Bacon Cheeseburger",
+          "precio_eur": 6.50
+        },
+        {
+          "nombre_es": "Completa",
+          "descripcion_es": "Lechuga, tomate, cebolla, carne y queso",
+          "nombre_en": "Fully Loaded",
+          "descripcion_en": "Lettuce, tomato, onion, beef patty, and cheese",
+          "precio_eur": 8.50
+        },
+        {
+          "nombre_es": "Especial",
+          "descripcion_es": "Tomate, cebolla, lechuga, carne, queso, huevo y beicon",
+          "nombre_en": "House Special",
+          "descripcion_en": "Tomato, onion, lettuce, beef patty, cheese, fried egg, and bacon",
+          "precio_eur": 10.00
+        }
+      ]
+    },
+    {
+      "categoria": "SÁNDWICHES / SANDWICHES",
+      "items": [
+        {
+          "nombre_es": "Vegetal",
+          "descripcion_es": "Lechuga, tomate, huevo, maíz y atún",
+          "nombre_en": "Veggie-style",
+          "descripcion_en": "Lettuce, tomato, egg, corn, and tuna",
+          "precio_eur": 7.50
+        },
+        {
+          "nombre_es": "Jamón York",
+          "nombre_en": "Cooked Ham Sandwich",
+          "precio_eur": 5.50
+        },
+        {
+          "nombre_es": "Beicon",
+          "nombre_en": "Bacon Sandwich",
+          "precio_eur": 5.50
+        },
+        {
+          "nombre_es": "Mixto: Jamón y queso o beicon y queso",
+          "nombre_en": "Ham & cheese or bacon & cheese sandwich",
+          "precio_eur": 7.00
+        },
+        {
+          "nombre_es": "Mixto: Jamón york con patatas",
+          "nombre_en": "Cooked ham sandwich served with fries",
+          "precio_eur": 7.00
+        },
+        {
+          "nombre_es": "Mixto: Beicon con patata",
+          "nombre_en": "Bacon sandwich served with fries",
+          "precio_eur": 7.00
+        }
+      ]
+    }
+  ]
+},
+
+{
+  "categoria": "TAPAS",
+  "items": [
+    {
+      "nombre_es": "Magra con tomate",
+      "nombre_en": "Lean pork with tomato sauce",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Albóndigas con tomate",
+      "nombre_en": "Meatballs with tomato sauce",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Ensaladilla rusa",
+      "nombre_en": "Russian salad (potatoes, vegetables, egg and mayonnaise)",
+      "precio_eur": 5.50
+    },
+    {
+      "nombre_es": "Ensalada murciana",
+      "nombre_en": "Murcian salad (tomatoes, olives, egg, seasoned with olive oil)",
+      "precio_eur": 7.00
+    },
+    {
+      "nombre_es": "Boquerones en vinagre con patatas",
+      "nombre_en": "Anchovies in vinegar with potato chips",
+      "precio_eur": 5.00
+    },
+    {
+      "nombre_es": "Ensalada de bocas",
+      "nombre_en": "Diced seafood with mayonnaise",
+      "precio_eur": 5.50
+    },
+    {
+      "nombre_es": "Tortitas de camarón",
+      "nombre_en": "Shrimp pancakes",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Surtido de croquetas",
+      "nombre_en": "Croquette variety",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Queso frito con mermelada",
+      "nombre_en": "Fried cheese with jam",
+      "precio_eur": 7.50
+    },
+    {
+      "nombre_es": "Tortilla de patatas",
+      "nombre_en": "Spanish omelette with potatoes",
+      "precio_eur": 2.80
+    },
+    {
+      "nombre_es": "Patatas bravas",
+      "nombre_en": "Potatoes with spicy sauce",
+      "precio_eur": 5.50
+    },
+    {
+      "nombre_es": "Patatas con alioli",
+      "nombre_en": "Potatoes with Spanish garlic mayonnaise",
+      "precio_eur": 5.50
+    },
+    {
+      "nombre_es": "Patatas fritas",
+      "nombre_en": "French fries",
+      "precio_eur": 4.50
+    },
+    {
+      "nombre_es": "Muslitos de mar",
+      "nombre_en": "Fried breaded diced crab",
+      "precio_eur": 6.00
+    },
+    {
+      "nombre_es": "Nuggets de pollo",
+      "nombre_en": "Fried breaded chicken",
+      "precio_eur": 7.00
+    },
+    {
+      "nombre_es": "Alitas barbacoa",
+      "nombre_en": "Barbecue wings",
+      "precio_eur": 8.00
+    },
+    {
+      "nombre_es": "Costilla barbacoa con patatas fritas",
+      "nombre_en": "Barbecue ribs with chips",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Calamar a la romana",
+      "nombre_en": "Fried squid rings",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Salpicón de pulpo",
+      "nombre_en": "Octopus salad",
+      "precio_eur": 7.00
+    },
+    {
+      "nombre_es": "Fingers de pollo",
+      "nombre_en": "Chicken tenders",
+      "precio_eur": 8.00
+    },
+    {
+      "nombre_es": "Berenjenas en tempura con miel de caña",
+      "nombre_en": "Crispy eggplant tempura with cane honey",
+      "precio_eur": 9.00
+    },
+    {
+      "nombre_es": "Boquerón frito",
+      "nombre_en": "Deep-fried anchovies",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Chipirones al ajillo",
+      "nombre_en": "Small squid with garlic",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Chipirones fritos",
+      "nombre_en": "Fried small squid",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Mejillones al vapor",
+      "nombre_en": "Steamed mussels",
+      "precio_eur": 12.00
+    },
+    {
+      "nombre_es": "Zepelines de Pescado",
+      "nombre_en": "Zeppelin-shaped fish croquettes",
+      "precio_eur": 7.00
+    }
+  ]
+},
+{
+  "categoria": "ENSALADAS / SALADS",
+  "items": [
+
+    {
+      "nombre_es": "Ensalada Mediterránea",
+      "nombre_en": "Mediterranean Salad",
+      "precio_eur": 10.00
+    },
+    {
+      "nombre_es": "Ensalada especial con queso rulo de cabra",
+      "nombre_en": "Special Salad with Goat Cheese Roll",
+      "precio_eur": 15.00
+    }
+  ]
+}
+]

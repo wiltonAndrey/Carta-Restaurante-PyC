@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Punto y Coma</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        :root {
+            --primary: #1c1c1c;
+            --secondary: #9e7f4c;
+            /* Elegant Gold */
+            --bg: #fdfaf6;
+            /* Classic paper */
+            --line: #dcd1c2;
+        }
+
+        @page {
+            size: A4;
+            margin: 12mm;
+            /* Minimal margins for print */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #cdcdcd;
+            /* Screen fallback background */
+            color: var(--primary);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            margin: 0;
+            padding: 0;
+            /* Do not use display: flex on body for print */
+        }
+
+        .document-wrapper {
+            background: var(--bg);
+            /* A4 size */
+            width: 210mm;
+            min-height: 297mm;
+            margin: 10mm auto;
+            /* centers on screen */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            padding: 8mm;
+            box-sizing: border-box;
+        }
+
+        /* Decorative border */
+        .page-border {
+            border: 1px solid var(--secondary);
+            padding: 10mm;
+            min-height: 275mm;
+        }
+
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+                display: block;
+            }
+
+            .document-wrapper {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                min-height: auto;
+                padding: 0;
+                height: auto;
+                page-break-after: always;
+            }
+
+            .page-border {
+                border: 0;
+                padding: 0;
+                min-height: auto;
+                height: auto;
+            }
+        }
+
+        .header {
+            text-align: center;
+            padding-bottom: 6mm;
+            margin-bottom: 6mm;
+            border-bottom: 1px solid var(--secondary);
+            position: relative;
+        }
+
+        /* A subtle diamond ornament */
+        .header::after {
+            content: "◆";
+            position: absolute;
+            bottom: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg);
+            padding: 0 10px;
+            font-size: 14px;
+            color: var(--secondary);
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 38pt;
+            letter-spacing: 6px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 2mm;
+            margin-top: 10mm;
+            /* Extra space at top since we removed border padding in print */
+        }
+
+        h2.subtitle {
+            font-size: 11pt;
+            letter-spacing: 4px;
+            color: var(--secondary);
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        .content {
+            column-count: 2;
+            column-gap: 12mm;
+            /* Approximate remaining height of A4 minus margins and header */
+            height: auto;
+        }
+
+        .category {
+            break-inside: avoid;
+            page-break-inside: avoid;
+            margin-bottom: 8mm;
+        }
+
+        .cat-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15pt;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 1mm;
+        }
+
+        .cat-divider {
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 4mm;
+            font-size: 10pt;
+            letter-spacing: 2px;
+        }
+
+        .item {
+            margin-bottom: 3.5mm;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .item-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .name-es {
+            font-weight: 600;
+            font-size: 9pt;
+            letter-spacing: 0.5px;
+        }
+
+        .dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted var(--line);
+            margin: 0 3mm;
+            position: relative;
+            top: -4px;
+        }
+
+        .price {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 10pt;
+        }
+
+        .name-en {
+            font-size: 7.5pt;
+            color: #666;
+            font-style: italic;
+            margin-top: 1px;
+        }
+
+        .desc-es {
+            font-size: 7.5pt;
+            color: #444;
+            margin-top: 1.5px;
+            line-height: 1.3;
+        }
+
+        .desc-en {
+            font-size: 7pt;
+            color: #888;
+            font-style: italic;
+            margin-top: 1px;
+            line-height: 1.3;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            padding-top: 5mm;
+            font-size: 8pt;
+            color: #a0a0a0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .banner {
+            text-align: center;
+            border: 1px solid var(--secondary);
+            background-color: #fbf7f0;
+            color: var(--primary);
+            padding: 8px 15px;
+            margin: 0 auto 5mm auto;
+            font-size: 8.5pt;
+            font-weight: 500;
+            width: 85%;
+            line-height: 1.4;
+            break-inside: avoid;
+        }
+
+        .banner .eng {
+            font-style: italic;
+            color: #666;
+            display: block;
+            font-size: 7.5pt;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="document-wrapper">
+        <div class="page-border">
+            <div class="header">
+                <h1>PUNTO Y COMA</h1>
+                <h2 class="subtitle">Cafetería & Restaurante</h2>
+            </div>
+
+            <div class="banner">
+                Tostadas solo en horarios de desayuno de 7:00 a.m. a 11:00 a.m.
+                <span class="eng">Toasts only during breakfast hours from 7:00 a.m. to 11:00 a.m.</span>
+            </div>
+            <div class="banner">
+                <strong>Nota:</strong> Se cobrarán todos los ingredientes extras
+                <span class="eng"><strong>Note:</strong> Extra ingredients will be charged</span>
+            </div>
+
+            <div class="content">
+                <div class="category">
+                    <div class="cat-title">BOCADILLOS / BREADSTICKS</div>
+                    <div class="cat-divider">———</div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Pechuga Empanada</span>
+                            <span class="dots"></span>
+                            <span class="price">7.00€</span>
+                        </div>
+                        <div class="name-en">Breaded chicken breast</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Calamares</span>
+                            <span class="dots"></span>
+                            <span class="price">7.00€</span>
+                        </div>
+                        <div class="name-en">Squid rings</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Tortilla francesa</span>
+                            <span class="dots"></span>
+                            <span class="price">7.00€</span>
+                        </div>
+                        <div class="name-en">Omelette</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Chorizo</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Sausage</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Pechuga Plancha</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Grilled chicken breast</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Lomo fresco</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Fresh pork loin</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Lomo adobado</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Pickled loin</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Longaniza blanca</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">White sausage</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Salchicha roja</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Red sausage</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Beicon</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Bacon</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Jamón serrano</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Serrano ham</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Tortilla de patatas</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Spanish omelette with potatoes</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Chorizo a la plancha</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Grilled sausage</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Morcilla</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Black sausage</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="cat-title">PLATOS COMBINADOS / COMBINED DISHES</div>
+                    <div class="cat-divider">———</div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Pechuga Empanada</span>
+                            <span class="dots"></span>
+                            <span class="price">14.00€</span>
+                        </div>
+                        <div class="name-en">Breaded chicken breast</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Filete de merluza</span>
+                            <span class="dots"></span>
+                            <span class="price">14.00€</span>
+                        </div>
+                        <div class="name-en">Hake fillet</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Pescado empanado</span>
+                            <span class="dots"></span>
+                            <span class="price">14.00€</span>
+                        </div>
+                        <div class="name-en">Fish and chips</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Solomillo de cerdo con ajitos tiernos</span>
+                            <span class="dots"></span>
+                            <span class="price">14.00€</span>
+                        </div>
+                        <div class="name-en">Pork tenderloin with tender garlic</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Atún a la plancha</span>
+                            <span class="dots"></span>
+                            <span class="price">14.00€</span>
+                        </div>
+                        <div class="name-en">Grilled tuna</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Emperador</span>
+                            <span class="dots"></span>
+                            <span class="price">14.00€</span>
+                        </div>
+                        <div class="name-en">Swordfish</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Filete de ternera</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Beef steak</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Chuleta de cerdo</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Pork chop</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Magra con tomate</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Lean pork with tomato sauce</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Pechuga Plancha</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Grilled chicken breast</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Lomo fresco</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Fresh pork loin</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Lomo adobado</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Pickled loin</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Tortilla francesa</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Omelette</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Albóndigas</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Meatballs</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="cat-title">CAFÉS / COFFEE</div>
+                    <div class="cat-divider">———</div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Sólo</span>
+                            <span class="dots"></span>
+                            <span class="price">1.20€</span>
+                        </div>
+                        <div class="name-en">Black coffee</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Cortado</span>
+                            <span class="dots"></span>
+                            <span class="price">1.40€</span>
+                        </div>
+                        <div class="name-en">Coffee with a splash of milk</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Café con leche</span>
+                            <span class="dots"></span>
+                            <span class="price">1.50€</span>
+                        </div>
+                        <div class="name-en">White coffee</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Bombón</span>
+                            <span class="dots"></span>
+                            <span class="price">1.50€</span>
+                        </div>
+                        <div class="name-en">Coffee with condensed milk</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Carajillo</span>
+                            <span class="dots"></span>
+                            <span class="price">1.80€</span>
+                        </div>
+                        <div class="name-en">Coffee with whiskey</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Belmonte</span>
+                            <span class="dots"></span>
+                            <span class="price">2.00€</span>
+                        </div>
+                        <div class="name-en">Coffee with condensed milk and cognac</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Infusión</span>
+                            <span class="dots"></span>
+                            <span class="price">1.50€</span>
+                        </div>
+                        <div class="name-en">Herbal infusion</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Café irlandés</span>
+                            <span class="dots"></span>
+                            <span class="price">3.70€</span>
+                        </div>
+                        <div class="name-en">Irish coffee</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Lumumba</span>
+                            <span class="dots"></span>
+                            <span class="price">2.90€</span>
+                        </div>
+                        <div class="name-en">Lumumba (chocolate milkshake with brandy)</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Café capuchino</span>
+                            <span class="dots"></span>
+                            <span class="price">3.50€</span>
+                        </div>
+                        <div class="name-en">Cappuccino</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Café americano</span>
+                            <span class="dots"></span>
+                            <span class="price">1.50€</span>
+                        </div>
+                        <div class="name-en">Americano coffee</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="cat-title">BEBIDA / DRINKS</div>
+                    <div class="cat-divider">———</div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Caña</span>
+                            <span class="dots"></span>
+                            <span class="price">2.20€</span>
+                        </div>
+                        <div class="name-en">Beer</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Bote</span>
+                            <span class="dots"></span>
+                            <span class="price">2.50€</span>
+                        </div>
+                        <div class="name-en">Beer can</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Gemini ha dicho</span>
+                            <span class="dots"></span>
+                            <span class="price">2.90€</span>
+                        </div>
+                        <div class="name-en">Gemini has said</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Tercio de cerveza</span>
+                            <span class="dots"></span>
+                            <span class="price">2.80€</span>
+                        </div>
+                        <div class="name-en">Bottled beer (330ml)</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Copa de whiskey (Desde)</span>
+                            <span class="dots"></span>
+                            <span class="price">3.50€</span>
+                        </div>
+                        <div class="name-en">Glass of whiskey (From)</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Copa de vino (Desde)</span>
+                            <span class="dots"></span>
+                            <span class="price">2.30€</span>
+                        </div>
+                        <div class="name-en">Glass of wine (From)</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Vino verdejo</span>
+                            <span class="dots"></span>
+                            <span class="price">2.50€</span>
+                        </div>
+                        <div class="name-en">Verdejo wine</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Vino Rioja</span>
+                            <span class="dots"></span>
+                            <span class="price">2.50€</span>
+                        </div>
+                        <div class="name-en">Rioja wine</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Vino Ribera</span>
+                            <span class="dots"></span>
+                            <span class="price">2.50€</span>
+                        </div>
+                        <div class="name-en">Ribera wine</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Zumos</span>
+                            <span class="dots"></span>
+                            <span class="price">2.50€</span>
+                        </div>
+                        <div class="name-en">Juices</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Refrescos</span>
+                            <span class="dots"></span>
+                            <span class="price">2.50€</span>
+                        </div>
+                        <div class="name-en">Soft drinks</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Tanque</span>
+                            <span class="dots"></span>
+                            <span class="price">3.50€</span>
+                        </div>
+                        <div class="name-en">Jar of beer</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Tubo</span>
+                            <span class="dots"></span>
+                            <span class="price">2.50€</span>
+                        </div>
+                        <div class="name-en">Tube glass of beer</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Chupitos de licor (Desde)</span>
+                            <span class="dots"></span>
+                            <span class="price">1.60€</span>
+                        </div>
+                        <div class="name-en">Liquor shots (From)</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Chupitos de whiskey (Desde)</span>
+                            <span class="dots"></span>
+                            <span class="price">1.80€</span>
+                        </div>
+                        <div class="name-en">Whiskey shots (From)</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Jarra de cerveza</span>
+                            <span class="dots"></span>
+                            <span class="price">9.00€</span>
+                        </div>
+                        <div class="name-en">Beer pitcher</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Martini</span>
+                            <span class="dots"></span>
+                            <span class="price">3.80€</span>
+                        </div>
+                        <div class="name-en">Martini</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Tinto de Verano</span>
+                            <span class="dots"></span>
+                            <span class="price">3.50€</span>
+                        </div>
+                        <div class="name-en">Red wine with soda/lemonade</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Paloma</span>
+                            <span class="dots"></span>
+                            <span class="price">3.50€</span>
+                        </div>
+                        <div class="name-en">Anise, water and ice</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Sol y sombra</span>
+                            <span class="dots"></span>
+                            <span class="price">3.50€</span>
+                        </div>
+                        <div class="name-en">Ricard (Anise), brandy and ice</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Sangría</span>
+                            <span class="dots"></span>
+                            <span class="price">4.00€</span>
+                        </div>
+                        <div class="name-en">Wine, chopped fruit, sweetener and liquor</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="cat-title">ESPECIALIDADES DE LA CASA / HOUSE SPECIALITIES</div>
+                    <div class="cat-divider">———</div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">BOCADILLO PUNTO Y COMA</span>
+                            <span class="dots"></span>
+                            <span class="price">15.00€</span>
+                        </div>
+                        <div class="name-en">PUNTO Y COMA BREADSTICK</div>
+                        <div class="desc-es">Tomate, lechuga, mahonesa, lomo fresco, cebolla caramelizada y beicon</div>
+                        <div class="desc-en">Tomato, lettuce, mayonnaise, fresh loin, caramelized onion and bacon</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">ESPECIAL DE LA CASA</span>
+                            <span class="dots"></span>
+                            <span class="price">15.00€</span>
+                        </div>
+                        <div class="name-en">HOUSE SPECIAL</div>
+                        <div class="desc-es">Tomate, lechuga, mahonesa, pollo empanado y huevo</div>
+                        <div class="desc-en">Tomato, lettuce, mayonnaise, breaded chicken and egg</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">TROPICAL PUNTO Y COMA</span>
+                            <span class="dots"></span>
+                            <span class="price">10.00€</span>
+                        </div>
+                        <div class="name-en">TROPICAL PUNTO Y COMA</div>
+                        <div class="desc-es">Lechuga, jamón york, queso y salsas de la casa</div>
+                        <div class="desc-en">Lettuce, York ham, cheese and house sauces</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">PATATAS PUNTO Y COMA</span>
+                            <span class="dots"></span>
+                            <span class="price">10.00€</span>
+                        </div>
+                        <div class="name-en">PUNTO Y COMA CHIPS</div>
+                        <div class="desc-es">Salchichas y salsa de la casa</div>
+                        <div class="desc-en">Chips and sausages with special sauce</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="cat-title">PERRITOS CALIENTES / HOT DOGS</div>
+                    <div class="cat-divider">———</div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Solo</span>
+                            <span class="dots"></span>
+                            <span class="price">4.00€</span>
+                        </div>
+                        <div class="name-en">Classic Hot Dog</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Con queso</span>
+                            <span class="dots"></span>
+                            <span class="price">5.50€</span>
+                        </div>
+                        <div class="name-en">Hot Dog with Cheese</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Beicon</span>
+                            <span class="dots"></span>
+                            <span class="price">5.50€</span>
+                        </div>
+                        <div class="name-en">Hot Dog with Bacon</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Beicon y queso</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Bacon and Cheese Hot Dog</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="cat-title">HAMBURGUESAS / BURGERS</div>
+                    <div class="cat-divider">———</div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Sola</span>
+                            <span class="dots"></span>
+                            <span class="price">4.50€</span>
+                        </div>
+                        <div class="desc-en">Just meat and bun</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Con queso</span>
+                            <span class="dots"></span>
+                            <span class="price">5.50€</span>
+                        </div>
+                        <div class="name-en">Cheeseburger</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Beicon</span>
+                            <span class="dots"></span>
+                            <span class="price">5.50€</span>
+                        </div>
+                        <div class="name-en">Bacon Burger</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Beicon y queso</span>
+                            <span class="dots"></span>
+                            <span class="price">6.50€</span>
+                        </div>
+                        <div class="name-en">Bacon Cheeseburger</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Completa</span>
+                            <span class="dots"></span>
+                            <span class="price">8.50€</span>
+                        </div>
+                        <div class="name-en">Fully Loaded</div>
+                        <div class="desc-es">Lechuga, tomate, cebolla, carne y queso</div>
+                        <div class="desc-en">Lettuce, tomato, onion, beef patty, and cheese</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Especial</span>
+                            <span class="dots"></span>
+                            <span class="price">10.00€</span>
+                        </div>
+                        <div class="name-en">House Special</div>
+                        <div class="desc-es">Tomate, cebolla, lechuga, carne, queso, huevo y beicon</div>
+                        <div class="desc-en">Tomato, onion, lettuce, beef patty, cheese, fried egg, and bacon</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="cat-title">SÁNDWICHES / SANDWICHES</div>
+                    <div class="cat-divider">———</div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Vegetal</span>
+                            <span class="dots"></span>
+                            <span class="price">8€</span>
+                        </div>
+                        <div class="name-en">Veggie-style</div>
+                        <div class="desc-es">Lechuga, tomate, huevo, maíz y atún</div>
+                        <div class="desc-en">Lettuce, tomato, egg, corn, and tuna</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Jamón York</span>
+                            <span class="dots"></span>
+                            <span class="price">5.50€</span>
+                        </div>
+                        <div class="name-en">Cooked Ham Sandwich</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Beicon</span>
+                            <span class="dots"></span>
+                            <span class="price">5.50€</span>
+                        </div>
+                        <div class="name-en">Bacon Sandwich</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Mixto: Jamón y queso o beicon y queso</span>
+                            <span class="dots"></span>
+                            <span class="price">7.00€</span>
+                        </div>
+                        <div class="name-en">Ham & cheese or bacon & cheese sandwich</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Mixto: Jamón york con patatas</span>
+                            <span class="dots"></span>
+                            <span class="price">7.00€</span>
+                        </div>
+                        <div class="name-en">Cooked ham sandwich served with fries</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Mixto: Beicon con patata</span>
+                            <span class="dots"></span>
+                            <span class="price">7.00€</span>
+                        </div>
+                        <div class="name-en">Bacon sandwich served with fries</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="cat-title">TAPAS</div>
+                    <div class="cat-divider">———</div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Magra con tomate</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Lean pork with tomato sauce</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Albóndigas con tomate</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Meatballs with tomato sauce</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Ensaladilla rusa</span>
+                            <span class="dots"></span>
+                            <span class="price">5.50€</span>
+                        </div>
+                        <div class="name-en">Russian salad (potatoes, vegetables, egg and mayonnaise)</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Ensalada murciana</span>
+                            <span class="dots"></span>
+                            <span class="price">7.00€</span>
+                        </div>
+                        <div class="name-en">Murcian salad (tomatoes, olives, egg, seasoned with olive oil)</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Boquerones en vinagre con patatas</span>
+                            <span class="dots"></span>
+                            <span class="price">5.00€</span>
+                        </div>
+                        <div class="name-en">Anchovies in vinegar with potato chips</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Ensalada de bocas</span>
+                            <span class="dots"></span>
+                            <span class="price">5.50€</span>
+                        </div>
+                        <div class="name-en">Diced seafood with mayonnaise</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Tortitas de camarón</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Shrimp pancakes</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Surtido de croquetas</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Croquette variety</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Queso frito con mermelada</span>
+                            <span class="dots"></span>
+                            <span class="price">7.50€</span>
+                        </div>
+                        <div class="name-en">Fried cheese with jam</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Tortilla de patatas</span>
+                            <span class="dots"></span>
+                            <span class="price">2.80€</span>
+                        </div>
+                        <div class="name-en">Spanish omelette with potatoes</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Patatas bravas</span>
+                            <span class="dots"></span>
+                            <span class="price">5.50€</span>
+                        </div>
+                        <div class="name-en">Potatoes with spicy sauce</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Patatas con alioli</span>
+                            <span class="dots"></span>
+                            <span class="price">5.50€</span>
+                        </div>
+                        <div class="name-en">Potatoes with Spanish garlic mayonnaise</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Patatas fritas</span>
+                            <span class="dots"></span>
+                            <span class="price">4.50€</span>
+                        </div>
+                        <div class="name-en">French fries</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Muslitos de mar</span>
+                            <span class="dots"></span>
+                            <span class="price">6.00€</span>
+                        </div>
+                        <div class="name-en">Fried breaded diced crab</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Nuggets de pollo</span>
+                            <span class="dots"></span>
+                            <span class="price">7.00€</span>
+                        </div>
+                        <div class="name-en">Fried breaded chicken</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Alitas barbacoa</span>
+                            <span class="dots"></span>
+                            <span class="price">8.00€</span>
+                        </div>
+                        <div class="name-en">Barbecue wings</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Costilla barbacoa con patatas fritas</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Barbecue ribs with chips</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Calamar a la romana</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Fried squid rings</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Salpicón de pulpo</span>
+                            <span class="dots"></span>
+                            <span class="price">7.00€</span>
+                        </div>
+                        <div class="name-en">Octopus salad</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Fingers de pollo</span>
+                            <span class="dots"></span>
+                            <span class="price">8.00€</span>
+                        </div>
+                        <div class="name-en">Chicken tenders</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Berenjenas en tempura con miel de caña</span>
+                            <span class="dots"></span>
+                            <span class="price">9.00€</span>
+                        </div>
+                        <div class="name-en">Crispy eggplant tempura with cane honey</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Boquerón frito</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Deep-fried anchovies</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Chipirones al ajillo</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Small squid with garlic</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Chipirones fritos</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Fried small squid</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Mejillones al vapor</span>
+                            <span class="dots"></span>
+                            <span class="price">12.00€</span>
+                        </div>
+                        <div class="name-en">Steamed mussels</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Zepelines de Pescado</span>
+                            <span class="dots"></span>
+                            <span class="price">7.00€</span>
+                        </div>
+                        <div class="name-en">Zeppelin-shaped fish croquettes</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="cat-title">ENSALADAS / SALADS</div>
+                    <div class="cat-divider">———</div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Ensalada Mediterránea</span>
+                            <span class="dots"></span>
+                            <span class="price">10.00€</span>
+                        </div>
+                        <div class="name-en">Mediterranean Salad</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top">
+                            <span class="name-es">Ensalada especial con queso rulo de cabra</span>
+                            <span class="dots"></span>
+                            <span class="price">15.00€</span>
+                        </div>
+                        <div class="name-en">Special Salad with Goat Cheese Roll</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">IVA Incluido / Taxes Included</div>
+        </div>
+    </div>
+</body>
+
+</html>
